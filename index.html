@@ -1,0 +1,2794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>AXION — The Invisible Force of Precision | Sovereign Autonomous AI Developer OS</title>
+  <meta name="description" content="The world's first truly sovereign autonomous AI developer OS. 8 high-performance local & cloud silicons, zero cloud lock-in, and 40% lower price than legacy Silicon Valley tools.">
+  <link rel="icon" type="image/svg+xml" href="axion_logo.svg">
+  <link rel="alternate icon" type="image/png" href="logo.png">
+  
+  <!-- Premium Modern Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       👑 AXION DESIGN SYSTEM — High-Tech Cyber-Obsidian & Precision Photonic Glow
+       ========================================================================== */
+    :root {
+      /* Royal Blue / Deep Blue Palette */
+      --bg-dark: #071228;
+      --bg-deep: #0a1936;
+      --bg-surface: #0e2246;
+      --card-bg: rgba(10, 25, 54, 0.85);
+      --card-border: rgba(234, 179, 8, 0.22);
+      --card-border-hover: rgba(234, 179, 8, 0.65);
+      
+      /* Golden / Saffron Accents & CTA */
+      --gold-primary: #f59e0b;
+      --gold-bright: #fbbf24;
+      --gold-deep: #d97706;
+      --gold-glow: rgba(245, 158, 11, 0.45);
+      --gold-glow-subtle: rgba(245, 158, 11, 0.15);
+
+      --cyan-bright: #38bdf8;
+      --cyan-deep: #0284c7;
+      --cyan-glow: rgba(56, 189, 248, 0.45);
+      --cyan-glow-subtle: rgba(56, 189, 248, 0.12);
+      
+      --violet-neon: #a855f7;
+      --violet-magenta: #ec4899;
+      --violet-glow: rgba(168, 85, 247, 0.45);
+      
+      /* Pearl White and Crisp White Text */
+      --text-main: #ffffff;
+      --text-muted: #f1f5f9;
+      --text-subtle: #cbd5e1;
+      
+      --success-green: #10b981;
+      --success-glow: rgba(16, 185, 129, 0.35);
+      --danger-red: #ef4444;
+      --danger-glow: rgba(239, 68, 68, 0.35);
+      
+      --font-display: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --font-code: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Background Starfield & Quantum Grid */
+    #quantumCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.65;
+    }
+
+    .ambient-glow-top {
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(1000px, 100vw);
+      height: 600px;
+      background: radial-gradient(circle, rgba(0, 242, 254, 0.15) 0%, rgba(157, 78, 221, 0.08) 45%, transparent 70%);
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .ambient-glow-mid {
+      position: fixed;
+      top: 40%;
+      right: 0;
+      width: min(700px, 100vw);
+      height: 700px;
+      background: radial-gradient(circle, rgba(247, 37, 133, 0.12) 0%, rgba(0, 242, 254, 0.05) 50%, transparent 75%);
+      filter: blur(100px);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 28px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ==========================================================================
+       NAVIGATION BAR
+       ========================================================================== */
+    .nav-bar {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 48px);
+      max-width: 1240px;
+      height: 70px;
+      background: rgba(8, 12, 22, 0.78);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      z-index: 1000;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.65), 0 0 1px 1px rgba(0, 242, 254, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .nav-bar:hover {
+      border-color: rgba(0, 242, 254, 0.3);
+      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.75), 0 0 15px rgba(0, 242, 254, 0.2);
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .brand-logo-img {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      object-fit: contain;
+      background: rgba(10, 25, 47, 0.7);
+      padding: 2px;
+      border: 1.5px solid rgba(0, 242, 254, 0.6);
+      box-shadow: 0 0 16px rgba(0, 242, 254, 0.45);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .brand-group:hover .brand-logo-img {
+      transform: scale(1.08) rotate(-2deg);
+      box-shadow: 0 0 24px rgba(0, 242, 254, 0.75);
+    }
+
+    .brand-text-block {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      color: #ffffff;
+      line-height: 1.1;
+    }
+
+    .brand-subtitle {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #00f2fe, #9d4edd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .nav-links a.active {
+      color: var(--cyan-bright);
+    }
+
+    .nav-badge-discount {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: linear-gradient(135deg, rgba(247, 37, 133, 0.2), rgba(0, 242, 254, 0.2));
+      border: 1px solid rgba(247, 37, 133, 0.5);
+      color: #ff5e9c;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 12px;
+      margin-left: 4px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .btn-nav-download {
+      background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+      color: #030712;
+      font-family: var(--font-display);
+      font-size: 13.5px;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 18px rgba(245, 158, 11, 0.4);
+      transition: all 0.25s ease;
+    }
+
+    .btn-nav-download:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 26px rgba(245, 158, 11, 0.65);
+      filter: brightness(1.1);
+    }
+
+    /* ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+    .hero-section {
+      padding-top: 170px;
+      padding-bottom: 90px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(12, 18, 34, 0.85);
+      border: 1px solid rgba(0, 242, 254, 0.35);
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--text-main);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 0 12px rgba(0, 242, 254, 0.15);
+      margin-bottom: 28px;
+      animation: floatBadge 4s ease-in-out infinite;
+    }
+
+    @keyframes floatBadge {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--cyan-bright);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--cyan-bright);
+      animation: pulseDot 2s infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(42px, 6.5vw, 84px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      max-width: 1050px;
+      margin: 0 auto 24px;
+      text-wrap: balance;
+    }
+
+    .hero-title span.gradient-text {
+      background: linear-gradient(135deg, #ffffff 20%, #00f2fe 65%, #9d4edd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .hero-title span.punchline-text {
+      display: block;
+      font-size: clamp(24px, 3.2vw, 42px);
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 8px;
+      background: linear-gradient(90deg, #94a3b8, #e2e8f0, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-description {
+      font-size: clamp(16px, 1.3vw, 20px);
+      color: var(--text-muted);
+      max-width: 820px;
+      margin: 0 auto 38px;
+      line-height: 1.7;
+      text-wrap: pretty;
+    }
+
+    .hero-actions-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+
+    .btn-hero-primary {
+      background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+      color: #030712;
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 800;
+      padding: 16px 36px;
+      border-radius: 14px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 8px 30px rgba(245, 158, 11, 0.45);
+      transition: all 0.25s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-hero-primary:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 12px 40px rgba(245, 158, 11, 0.7);
+      filter: brightness(1.1);
+    }
+
+    .btn-hero-secondary {
+      background: rgba(15, 23, 42, 0.85);
+      color: #ffffff;
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 32px;
+      border-radius: 14px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      transition: all 0.25s ease;
+      backdrop-filter: blur(12px);
+      cursor: pointer;
+    }
+
+    .btn-hero-secondary:hover {
+      background: rgba(30, 41, 59, 0.95);
+      border-color: rgba(0, 242, 254, 0.5);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Trust Stats Strip */
+    .trust-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+      flex-wrap: wrap;
+      color: var(--text-subtle);
+      font-size: 13.5px;
+      font-weight: 600;
+      padding-top: 10px;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .trust-item strong {
+      color: var(--text-main);
+    }
+
+    /* ==========================================================================
+       HERO TERMINAL INTERACTIVE SHOWCASE
+       ========================================================================== */
+    .terminal-container {
+      max-width: 1080px;
+      margin: 40px auto 0;
+      background: #080d1a;
+      border: 1px solid rgba(0, 242, 254, 0.25);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.85), 0 0 40px rgba(0, 242, 254, 0.15);
+      text-align: left;
+    }
+
+    .terminal-header {
+      background: #0c1324;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .terminal-dots {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .terminal-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .dot-red { background: #ff5f56; }
+    .dot-yellow { background: #ffbd2e; }
+    .dot-green { background: #27c93f; }
+
+    .terminal-title-center {
+      font-family: var(--font-code);
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .terminal-title-center span.model-pill {
+      background: rgba(0, 242, 254, 0.12);
+      border: 1px solid rgba(0, 242, 254, 0.35);
+      color: var(--cyan-bright);
+      padding: 2px 10px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .terminal-status-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-code);
+      font-size: 12px;
+      color: var(--success-green);
+    }
+
+    .terminal-body {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      min-height: 420px;
+      background: #060a14;
+    }
+
+    .terminal-sidebar {
+      background: #080e1c;
+      border-right: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 16px;
+    }
+
+    .sidebar-heading {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--text-subtle);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .file-tree-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-code);
+      font-size: 12.5px;
+      color: var(--text-muted);
+      padding: 6px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 2px;
+      transition: all 0.2s;
+    }
+
+    .file-tree-item.active, .file-tree-item:hover {
+      background: rgba(0, 242, 254, 0.1);
+      color: #ffffff;
+    }
+
+    .terminal-code-area {
+      flex: 1;
+      min-width: 0;
+      max-width: 100%;
+      padding: 24px;
+      font-family: var(--font-code);
+      font-size: 13.5px;
+      line-height: 1.8;
+      overflow-x: auto;
+    }
+
+    .code-line {
+      display: block;
+      word-break: break-word;
+    }
+
+    .c-comment { color: #64748b; }
+    .c-keyword { color: #f472b6; font-weight: 600; }
+    .c-fn { color: #60a5fa; }
+    .c-str { color: #34d399; }
+    .c-alert {
+      background: rgba(0, 242, 254, 0.1);
+      border-left: 3px solid var(--cyan-bright);
+      padding: 8px 14px;
+      border-radius: 0 8px 8px 0;
+      margin: 12px 0;
+      color: #e2e8f0;
+      font-size: 12.5px;
+    }
+
+    /* ==========================================================================
+       SECTION 2: THE 3 INTERNATIONAL PRICING PLANS (40% OFF)
+       ========================================================================== */
+    .pricing-section {
+      padding: 120px 0 90px;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto 50px;
+    }
+
+    .section-badge {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--cyan-bright);
+      background: rgba(0, 242, 254, 0.1);
+      border: 1px solid rgba(0, 242, 254, 0.25);
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(34px, 4.5vw, 56px);
+      font-weight: 900;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .section-desc {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* Pricing Currency & Interval Controls */
+    .pricing-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+    }
+
+    .currency-selector {
+      display: flex;
+      background: #0a0f1e;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 4px;
+    }
+
+    .currency-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .currency-btn.active {
+      background: rgba(0, 242, 254, 0.18);
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .billing-toggle {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 52px;
+      height: 28px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: #1e293b;
+      transition: .3s;
+      border-radius: 34px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 4px;
+      bottom: 3px;
+      background-color: #ffffff;
+      transition: .3s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #00f2fe;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(24px);
+      background-color: #030712;
+    }
+
+    .annual-discount-chip {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(0, 242, 254, 0.15));
+      border: 1px solid rgba(16, 185, 129, 0.5);
+      color: #34d399;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    /* Pricing Cards Grid */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 70px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 980px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 520px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    .pricing-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 36px 30px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      backdrop-filter: blur(20px);
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--card-border-hover);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 30px var(--cyan-glow-subtle);
+    }
+
+    .pricing-card.featured {
+      background: linear-gradient(180deg, rgba(16, 24, 46, 0.9) 0%, rgba(10, 15, 30, 0.9) 100%);
+      border: 2px solid rgba(0, 242, 254, 0.65);
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 242, 254, 0.25);
+      transform: scale(1.03);
+    }
+
+    .pricing-card.featured:hover {
+      transform: scale(1.05) translateY(-8px);
+    }
+
+    .popular-tag {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+      color: #030712;
+      font-family: var(--font-display);
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 18px;
+      border-radius: 20px;
+      box-shadow: 0 4px 16px rgba(0, 242, 254, 0.6);
+    }
+
+    .plan-header {
+      margin-bottom: 24px;
+    }
+
+    .plan-badge-type {
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--cyan-bright);
+      margin-bottom: 8px;
+    }
+
+    .plan-name {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .plan-tagline {
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    .plan-price-block {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin: 20px 0 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .price-strike {
+      font-size: 18px;
+      color: var(--text-subtle);
+      text-decoration: line-through;
+      font-weight: 500;
+    }
+
+    .price-amount {
+      font-family: var(--font-display);
+      font-size: 46px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    .price-period {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .discount-banner-pill {
+      display: inline-block;
+      background: rgba(247, 37, 133, 0.15);
+      border: 1px solid rgba(247, 37, 133, 0.4);
+      color: #ff5e9c;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 8px;
+      margin-bottom: 18px;
+    }
+
+    .plan-models-summary {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-bottom: 24px;
+    }
+
+    .models-count-heading {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--cyan-bright);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .models-active-names {
+      font-size: 12.5px;
+      color: #cbd5e1;
+      font-family: var(--font-code);
+      line-height: 1.5;
+    }
+
+    .plan-features-list {
+      list-style: none;
+      margin-bottom: 32px;
+      flex-grow: 1;
+    }
+
+    .plan-feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .plan-feature-item svg {
+      width: 18px;
+      height: 18px;
+      color: var(--cyan-bright);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .btn-plan-select {
+      width: 100%;
+      padding: 14px 20px;
+      border-radius: 12px;
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      display: block;
+      border: none;
+    }
+
+    .btn-plan-primary {
+      background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+      color: #030712;
+      box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4);
+    }
+
+    .btn-plan-primary:hover {
+      box-shadow: 0 8px 30px rgba(245, 158, 11, 0.7);
+      transform: translateY(-2px);
+      filter: brightness(1.1);
+    }
+
+    .btn-plan-outline {
+      background: rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .btn-plan-outline:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--cyan-bright);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       SECTION 3: INTERACTIVE 8-MODEL MATRIX (PLAN BIFURCATION DEMO)
+       ========================================================================== */
+    .matrix-section {
+      background: #060a14;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 100px 0;
+    }
+
+    .matrix-nav-tabs {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+
+    .matrix-tab-btn {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      padding: 10px 24px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .matrix-tab-btn.active {
+      background: rgba(0, 242, 254, 0.15);
+      border-color: var(--cyan-bright);
+      color: #ffffff;
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.25);
+    }
+
+    .models-matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 1024px) {
+      .models-matrix-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .models-matrix-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .model-card {
+      background: rgba(12, 18, 34, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 22px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .model-card.unlocked {
+      border-color: rgba(16, 185, 129, 0.4);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 0 16px rgba(16, 185, 129, 0.08);
+    }
+
+    .model-card.locked {
+      opacity: 0.55;
+      filter: grayscale(0.5);
+      border-color: rgba(239, 68, 68, 0.2);
+    }
+
+    .model-card.locked:hover {
+      opacity: 0.85;
+      filter: grayscale(0);
+    }
+
+    .model-status-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .status-unlocked {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .status-locked {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .model-name-title {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .model-param-spec {
+      font-family: var(--font-code);
+      font-size: 11.5px;
+      color: var(--cyan-bright);
+      margin-bottom: 10px;
+    }
+
+    .model-desc-body {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       SECTION 4: COMPETITOR BENCHMARK COMPARISON
+       ========================================================================== */
+    .comparison-section {
+      padding: 100px 0;
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #080d1a;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+    }
+
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .comp-table th {
+      background: #0c1426;
+      padding: 18px 24px;
+      font-family: var(--font-display);
+      font-weight: 800;
+      color: #ffffff;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .comp-table th.col-axion {
+      background: rgba(0, 242, 254, 0.12);
+      color: var(--cyan-bright);
+      border-left: 2px solid var(--cyan-bright);
+      border-right: 2px solid var(--cyan-bright);
+    }
+
+    .comp-table td {
+      padding: 16px 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+    }
+
+    .comp-table td.col-axion {
+      background: rgba(0, 242, 254, 0.04);
+      color: #ffffff;
+      font-weight: 600;
+      border-left: 2px solid rgba(0, 242, 254, 0.3);
+      border-right: 2px solid rgba(0, 242, 254, 0.3);
+    }
+
+    .check-yes {
+      color: #10b981;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .check-no {
+      color: #ef4444;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       CHECKOUT & LICENSE ACTIVATION MODAL
+       ========================================================================== */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(2, 6, 14, 0.85);
+      backdrop-filter: blur(16px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      padding: 20px;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      background: #090f20;
+      border: 1px solid rgba(0, 242, 254, 0.4);
+      border-radius: 24px;
+      width: 100%;
+      max-width: 580px;
+      padding: 36px;
+      box-shadow: 0 30px 100px rgba(0, 0, 0, 0.9), 0 0 50px rgba(0, 242, 254, 0.25);
+      transform: scale(0.92);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .modal-overlay.open .modal-content {
+      transform: scale(1);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      color: #ffffff;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .license-box {
+      background: #050811;
+      border: 1px dashed rgba(0, 242, 254, 0.45);
+      border-radius: 12px;
+      padding: 16px;
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-code);
+      font-size: 15px;
+      color: var(--cyan-bright);
+    }
+
+    .btn-copy-key {
+      background: rgba(0, 242, 254, 0.2);
+      border: 1px solid rgba(0, 242, 254, 0.5);
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* Footer */
+    footer {
+      background: #04060c;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 60px 0 40px;
+      font-size: 13.5px;
+      color: var(--text-subtle);
+    }
+
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    html {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    .ambient-glow-top,
+    .ambient-glow-mid {
+      max-width: 100vw;
+      overflow: hidden;
+    }
+
+    @media (max-width: 980px) {
+      .nav-bar {
+        width: calc(100% - 20px);
+        max-width: calc(100vw - 20px);
+        padding: 0 14px;
+        height: 60px;
+        top: 10px;
+      }
+      .nav-links,
+      .brand-subtitle {
+        display: none;
+      }
+      .brand-title {
+        font-size: 17px;
+        letter-spacing: 2px;
+      }
+      .btn-nav-download {
+        padding: 8px 12px;
+        font-size: 12px;
+        white-space: nowrap;
+      }
+      .container {
+        padding: 0 16px;
+      }
+      .hero-section {
+        padding-top: 96px;
+        padding-bottom: 56px;
+      }
+      .hero-title {
+        font-size: 32px;
+        letter-spacing: -0.5px;
+      }
+      .hero-description {
+        font-size: 15px;
+      }
+      .hero-actions-row,
+      .trust-strip,
+      .terminal-body {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+      }
+      .terminal-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .terminal-container,
+      .table-responsive {
+        max-width: 100%;
+        width: 100%;
+      }
+      .terminal-code-area {
+        padding: 14px;
+        font-size: 11.5px;
+      }
+      .comp-table {
+        width: 100%;
+      }
+      .models-matrix-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .pricing-card.featured,
+      .pricing-card.featured:hover {
+        transform: none;
+      }
+    }
+  
+    /* OS Tabs & Download Modal */
+    .os-tabs-nav {
+      display: flex;
+      gap: 8px;
+      background: rgba(0,0,0,0.4);
+      padding: 6px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    .os-tab-btn {
+      flex: 1;
+      padding: 10px 14px;
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      color: #94a3b8;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .os-tab-btn.active {
+      background: #0f1c3f;
+      border-color: #f59e0b;
+      color: #f8fafc;
+      box-shadow: 0 4px 12px rgba(245,158,11,0.25);
+    }
+    .os-panel {
+      display: none;
+    }
+    .os-panel.active {
+      display: block;
+    }
+    .code-snippet-box {
+      background: #030712;
+      border: 1px solid rgba(0, 242, 254, 0.25);
+      border-radius: 10px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 12px 0 16px 0;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.5);
+    }
+    .code-snippet-text {
+      font-family: var(--font-code);
+      font-size: 12px;
+      color: #38bdf8;
+      overflow-x: auto;
+      white-space: nowrap;
+      flex: 1;
+      padding-right: 6px;
+    }
+    .btn-copy-snippet {
+      background: rgba(0, 242, 254, 0.12);
+      border: 1px solid rgba(0, 242, 254, 0.35);
+      color: #00f2fe;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 7px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+    .btn-copy-snippet:hover {
+      background: #00f2fe;
+      color: #030712;
+      box-shadow: 0 0 12px rgba(0, 242, 254, 0.5);
+    }
+
+    /* What You Can Build Section */
+    .build-section {
+      padding: 90px 0;
+      background: rgba(7, 18, 40, 0.45);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .build-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    @media (max-width: 900px) {
+      .build-grid { grid-template-columns: 1fr; }
+    }
+    .build-card {
+      background: rgba(10, 20, 45, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 28px;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .build-card:hover {
+      border-color: #f59e0b;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(245, 158, 11, 0.15);
+    }
+    .build-icon {
+      font-size: 32px;
+      margin-bottom: 14px;
+    }
+    .build-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 800;
+      color: #f8fafc;
+      margin-bottom: 8px;
+    }
+    .build-desc {
+      font-size: 13.5px;
+      color: #94a3b8;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+    .build-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 16px;
+    }
+    .build-tag {
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: #f59e0b;
+      border-radius: 6px;
+      padding: 3px 8px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* Checkout Payment Gate Styles */
+    .payment-options-row {
+      display: flex;
+      gap: 10px;
+      margin: 16px 0;
+    }
+    .payment-opt-btn {
+      flex: 1;
+      padding: 12px 8px;
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      color: #cbd5e1;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .payment-opt-btn.active {
+      border-color: #10b981;
+      background: rgba(16,185,129,0.12);
+      color: #34d399;
+    }
+    .checkout-input-field {
+      width: 100%;
+      background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 12px 14px;
+      color: #f8fafc;
+      font-size: 14px;
+      margin-bottom: 12px;
+      outline: none;
+      box-sizing: border-box;
+    }
+    .checkout-input-field:focus {
+      border-color: #f59e0b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Canvas -->
+  <canvas id="quantumCanvas"></canvas>
+  <div class="ambient-glow-top"></div>
+  <div class="ambient-glow-mid"></div>
+
+  <!-- NAVIGATION -->
+  <nav class="nav-bar">
+    <a href="#" class="brand-group">
+      <img src="axion_logo.svg" alt="AXION Logo" class="brand-logo-img">
+      <div class="brand-text-block">
+        <span class="brand-title">AXION</span>
+        <span class="brand-subtitle">The Invisible Force of Precision</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#models">8 Silicons</a></li>
+      <li><a href="#requirements">System Requirements</a></li>
+      <li><a href="#compliance">OS Compliance</a></li>
+      <li><a href="#benchmarks">Benchmarks</a></li>
+      <li><a href="#pricing" class="active">Pricing <span class="nav-badge-discount">40% OFF</span></a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="btn-nav-download" onclick="openDownloadModal()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        Get Terminal
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-badge-pill">
+        <span class="badge-dot"></span>
+        <span>GLOBAL LAUNCH — DISRUPTIVE 40% DEVELOPER DISCOUNT NOW ACTIVE</span>
+      </div>
+
+      <div style="display:inline-flex; align-items:center; gap:8px; padding:8px 18px; background:linear-gradient(90deg, rgba(16,185,129,0.18), rgba(245,158,11,0.18)); border:1px solid rgba(16,185,129,0.45); border-radius:9999px; font-size:12.5px; color:#34d399; font-weight:800; margin-bottom:14px; text-transform:uppercase; letter-spacing:1px; box-shadow:0 0 20px rgba(16,185,129,0.2);">
+        <span>🔥 24/7 NON-STOP EXECUTION • ZERO TOKEN QUOTAS • NO HOURLY LOCKOUTS • CODE UNLIMITED</span>
+      </div>
+
+      <div style="display:inline-flex; align-items:center; gap:8px; padding:6px 16px; background:rgba(245,158,11,0.12); border:1px solid rgba(245,158,11,0.35); border-radius:9999px; font-size:13px; color:#fbbf24; font-weight:600; margin-bottom:20px;">
+        <span>⚡ As per the hardware configuration and properties of your computer or laptop, open source AI model will work and support.</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="gradient-text">THE AUTONOMOUS DEVELOPER OS.</span>
+        <span class="punchline-text">The Invisible Force of Precision</span>
+      </h1>
+
+      <p class="hero-description">
+      AXION automatically selects the most powerful open‑source AI model that matches your hardware. It outperforms competitors like Anthropic, OpenAI, Google Gemini, and others even on low‑end machines, delivering enterprise‑grade performance for app, web, SaaS, and AI‑agent development.
+    </p>
+    <p class="hero-description">
+      After you purchase a plan, the system runs a one‑time hardware scan and recommends the optimal model, ensuring you always get the best value‑for‑money experience.
+    </p>
+    <p class="hero-description">
+      Our integrated GitHub‑powered repositories (llama.cpp, DeepSpeed, LangChain, Stable‑Diffusion, Auto‑GPT, etc.) guarantee the highest‑quality image, video, and code generation across the entire configuration spectrum.
+    </p>
+    <p class="hero-description">
+      No feature will be disabled due to lower specs – the fallback model will still provide a full, automated AI experience.
+    </p>
+    <p class="hero-description">
+        Break free from $100/mo closed-cloud fees and proprietary vendor lock-in. 
+        AXION fuses 8 high-performance sovereign AI silicons, real-time Offline & OS Speech, 
+        and an automatic FOSS-Interceptor into a single distraction-free terminal on your hardware.
+      </p>
+
+      <div class="hero-actions-row">
+        <button class="btn-hero-primary" onclick="openDownloadModal()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Download AXION Studio (Free)
+        </button>
+        <a href="#matrix" class="btn-hero-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+          Explore 8 AI Models
+        </a>
+      </div>
+
+      <div class="trust-strip">
+        <div class="trust-item">⭐ <strong>46,500+</strong> GitHub Stars Vetted</div>
+        <div class="trust-item">🔒 <strong>100%</strong> Air-Gapped Privacy</div>
+        <div class="trust-item">⚡ <strong>356ms</strong> Sub-Second Local Latency</div>
+        <div class="trust-item">💰 <strong>$0</strong> Cloud Token Waste</div>
+      </div>
+
+      <!-- LIVE TERMINAL PREVIEW -->
+      <div class="terminal-container">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <div class="terminal-dot dot-red"></div>
+            <div class="terminal-dot dot-yellow"></div>
+            <div class="terminal-dot dot-green"></div>
+          </div>
+          <div class="terminal-title-center">
+            <span>axion-autonomous-studio</span>
+            <span class="model-pill">🔬 AXION-R1 Sovereign 7B</span>
+          </div>
+          <div class="terminal-status-right">
+            <span>● 100% Air-Gapped</span>
+          </div>
+        </div>
+
+        <div class="terminal-body">
+          <div class="terminal-sidebar">
+            <div class="sidebar-heading">Project Files</div>
+            <div class="file-tree-item active">📄 auth_engine.ts</div>
+            <div class="file-tree-item">📄 search_index.rs</div>
+            <div class="file-tree-item">📄 vector_vault.py</div>
+            <div class="file-tree-item">⚙️ foss_registry.json</div>
+          </div>
+
+          <div class="terminal-code-area">
+            <span class="code-line c-comment">// 👑 AXION Sovereign Intelligence Core — Autonomous Generation</span>
+            <span class="code-line"><span class="c-keyword">import</span> { SovereignAuth } <span class="c-keyword">from</span> <span class="c-str">'@axion/better-auth'</span>;</span>
+            <span class="code-line"><span class="c-keyword">import</span> { LocalLanceDB } <span class="c-keyword">from</span> <span class="c-str">'@axion/lancedb'</span>;</span>
+            <br>
+            <div class="c-alert">
+              ⚡ <strong>[AXION FOSS INTERCEPTOR DETECTED]</strong><br>
+              ❌ Avoid Paid: Algolia ($$$ Per-Search Billing & Vendor Lock-in)<br>
+              👑 Sovereign Winner: <strong>Meilisearch (⭐ 46,500+ | MIT | Ultra-Fast Rust)</strong><br>
+              💰 Cost: $0 Lifetime Free Local Silicon
+            </div>
+            <br>
+            <span class="code-line"><span class="c-keyword">export async function</span> <span class="c-fn">dispatchSovereignInference</span>() {</span>
+            <span class="code-line">&nbsp;&nbsp;<span class="c-keyword">const</span> engine = <span class="c-keyword">new</span> AXION.SiliconFleet(<span class="c-str">'deepseek-r1:7b'</span>);</span>
+            <span class="code-line">&nbsp;&nbsp;<span class="c-keyword">return await</span> engine.synthesizeArchitecture();</span>
+            <span class="code-line">}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  
+  <!-- WHAT YOU CAN BUILD SECTION -->
+  <section class="build-section" id="capabilities">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">END-TO-END CAPABILITIES</span>
+        <h2 class="section-title">What You Can Build With AXION Studio.</h2>
+        <p class="section-desc">
+          From full-stack production SaaS to native mobile applications and autonomous background agents — 
+          build anything with zero cloud token bills and 24/7 uninterrupted runtime.
+        </p>
+      </div>
+
+      <div class="build-grid">
+        <div class="build-card">
+          <div class="build-icon">📱</div>
+          <div class="build-title">Mobile Apps (Android APK & iOS)</div>
+          <p class="build-desc">
+            Build full-featured cross-platform Flutter, Kotlin, and Swift mobile applications. Compile production-ready Android APKs with 1-click using AXION Mobile Architect directly on your machine.
+          </p>
+          <div class="build-tags">
+            <span class="build-tag">Flutter</span>
+            <span class="build-tag">Kotlin / Swift</span>
+            <span class="build-tag">1-Click APK</span>
+          </div>
+        </div>
+
+        <div class="build-card">
+          <div class="build-icon">📲</div>
+          <div class="build-title">Zero-Lag Mobile & Tablet Simulators</div>
+          <p class="build-desc">
+            Test your responsive web apps, Flutter exports, and mobile interfaces in ultra-smooth 60 FPS hardware simulators (iPhone 16 Pro Max, Galaxy S24, iPad Pro, Foldables). Zero Android Studio AVD lag — instant, lightweight testing with touch emulation.
+          </p>
+          <div class="build-tags">
+            <span class="build-tag">iOS 18 & Android 15</span>
+            <span class="build-tag">Tablets & Foldables</span>
+            <span class="build-tag">Zero AVD Lag</span>
+            <span class="build-tag">60 FPS Webview</span>
+          </div>
+        </div>
+
+        <div class="build-card">
+          <div class="build-icon">💻</div>
+          <div class="build-title">Full-Stack SaaS & Web Platforms</div>
+          <p class="build-desc">
+            Generate complete React, Next.js, Node.js, Express, TailwindCSS, and PostgreSQL/Supabase applications with comprehensive test suites, database migrations, and clean architecture.
+          </p>
+          <div class="build-tags">
+            <span class="build-tag">Next.js / React</span>
+            <span class="build-tag">Node.js API</span>
+            <span class="build-tag">Supabase SQL</span>
+          </div>
+        </div>
+
+        <div class="build-card">
+          <div class="build-icon">🕵️</div>
+          <div class="build-title">Autonomous AI Background Agents</div>
+          <p class="build-desc">
+            Deploy autonomous Hermes operators that run in headless or visual browser mode to scrape data, audit web portals, automate repetitive business workflows, and monitor systems 24/7.
+          </p>
+          <div class="build-tags">
+            <span class="build-tag">Hermes Agent</span>
+            <span class="build-tag">Browser Automation</span>
+            <span class="build-tag">Visual Audits</span>
+          </div>
+        </div>
+
+        <div class="build-card">
+          <div class="build-icon">🎬</div>
+          <div class="build-title">4K AI Video & UI Motion Components</div>
+          <p class="build-desc">
+            Generate cinematic 4K video scenes, generative UI widgets, SVG illustrations, and responsive 3D micro-interactions powered by Wan2.1 and local multimodal vision models.
+          </p>
+          <div class="build-tags">
+            <span class="build-tag">Wan2.1 4K</span>
+            <span class="build-tag">Generative UI</span>
+            <span class="build-tag">SVG Animations</span>
+          </div>
+        </div>
+
+        <div class="build-card">
+          <div class="build-icon">🔒</div>
+          <div class="build-title">100% Offline Air-Gapped Software</div>
+          <p class="build-desc">
+            Work on sensitive codebases, proprietary algorithms, financial ledgers, and confidential enterprise apps with total peace of mind. Zero telemetry leaves your local RAM and GPU.
+          </p>
+          <div class="build-tags">
+            <span class="build-tag">Zero Telemetry</span>
+            <span class="build-tag">100% Offline</span>
+            <span class="build-tag">SOC2 / HIPAA Safe</span>
+          </div>
+        </div>
+
+        <div class="build-card">
+          <div class="build-icon">🎙️</div>
+          <div class="build-title">Voice-Driven Coding (Hindi + English)</div>
+          <p class="build-desc">
+            Dictate code, debugging commands, and system architectures naturally in Hindi or English. Built-in open-source Whisper STT transcribes your voice offline at zero API cost.
+          </p>
+          <div class="build-tags">
+            <span class="build-tag">Whisper.cpp</span>
+            <span class="build-tag">Bilingual Hindi/EN</span>
+            <span class="build-tag">₹0 API Cost</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING SECTION -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">INTERNATIONAL LAUNCH PRICING</span>
+        <h2 class="section-title">Save 40% Over Legacy Developer Tools.</h2>
+        <p class="section-desc">
+          Silicon Valley charging $20 to $100 every single month for rate-limited cloud servers is over. 
+          Pick your AXION tier, unlock your dedicated models, and own your development lifecycle.
+        </p>
+      </div>
+
+      <!-- Currency & Interval Controls -->
+      
+      <div style="background:rgba(15,28,63,0.8); border:1px solid rgba(245,158,11,0.3); border-radius:16px; padding:20px 24px; margin-bottom:36px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+        <div style="max-width:750px;">
+          <div style="color:#f59e0b; font-weight:800; font-size:15px; margin-bottom:4px; display:flex; align-items:center; gap:8px;">
+            <span>🚀 24/7 NON-STOP EXECUTION — ZERO QUOTA EXHAUSTION</span>
+          </div>
+          <div style="color:#94a3b8; font-size:13px; line-height:1.6;">
+            Unlike Cursor, Claude, or ChatGPT Plus where you pay $20/month and hit an annoying usage limit after a heavy day, AXION provides <strong>unrestricted 24/7 runtime</strong>. Run thousands of prompts, build all day and night — your local silicon and free Groq LPU never shut you down.
+          </div>
+        </div>
+        <div>
+          <button class="btn-hero-primary" onclick="openDownloadModal()" style="padding:10px 20px; font-size:13px;">
+            📥 Download Terminal Free
+          </button>
+        </div>
+      </div>
+
+      <div class="pricing-controls">
+        <div class="currency-selector">
+          <button class="currency-btn active" onclick="setCurrency('USD')">USD ($)</button>
+          <button class="currency-btn" onclick="setCurrency('EUR')">EUR (€)</button>
+          <button class="currency-btn" onclick="setCurrency('GBP')">GBP (£)</button>
+          <button class="currency-btn" onclick="setCurrency('INR')">INR (₹)</button>
+        </div>
+
+        <div class="billing-toggle">
+          <span>Monthly</span>
+          <label class="switch">
+            <input type="checkbox" id="annualSwitch" onchange="toggleAnnual(this.checked)">
+            <span class="slider"></span>
+          </label>
+          <span>Annual Billing</span>
+          <span class="annual-discount-chip">EXTRA 20% OFF</span>
+        </div>
+      </div>
+
+      <!-- 3 PRICING CARDS -->
+      <div class="pricing-grid">
+
+        <!-- PLAN 1: CORE -->
+        <div class="pricing-card" id="card-core">
+          <div class="plan-header">
+            <div class="plan-badge-type">INDIE & SOLO BUILDER</div>
+            <h3 class="plan-name">AXION Core</h3>
+            <p class="plan-tagline">Essential local silicon intelligence for daily high-speed development.</p>
+          </div>
+
+          <div class="plan-price-block">
+            <span class="price-strike" id="core-strike">$20</span>
+            <span class="price-amount" id="core-price">$12</span>
+            <span class="price-period">/ month</span>
+          </div>
+
+          <div class="discount-banner-pill">🔥 40% OFF Industry Standard</div>
+
+          <div class="plan-models-summary">
+            <div class="models-count-heading">
+              <span>UNLOCKED SILICONS (2 MODELS)</span>
+              <span>2 / 8</span>
+            </div>
+            <div class="models-active-names">
+              ⚡ AXION Lightning 8B<br>
+              🔒 AXION Air-Gap Core
+            </div>
+          </div>
+
+          <ul class="plan-features-list">
+            <li class="plan-feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Unlimited Local Silicon execution ($0 Token fees)</span>
+            </li>
+            <li class="plan-feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Sub-Second 356ms Tab Auto-Complete</span>
+            </li>
+            <li class="plan-feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Offline Neural & OS Voice Engine (Hindi + English, ₹0 API Fees)</span>
+            </li>
+            <li class="plan-feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>AXION Sovereign FOSS-Interceptor</span>
+            </li>
+          </ul>
+
+          <button class="btn-plan-select btn-plan-outline" onclick="openPaymentCheckout('AXION Core', 12, 'AXION-CORE')">
+            Get AXION Core
+          </button>
+        </div>
+
+        <!-- PLAN 2: PRO (FEATURED) -->
+        <div class="pricing-card featured" id="card-pro">
+          <div class="popular-tag">MOST POPULAR ⭐</div>
+          <div class="plan-header">
+            <div class="plan-badge-type">AUTONOMOUS ENGINEER</div>
+            <h3 class="plan-name">AXION Pro</h3>
+            <p class="plan-tagline">Advanced multi-model autonomous reasoning for professional builders.</p>
+          </div>
+
+          <div class="plan-price-block">
+            <span class="price-strike" id="pro-strike">$40</span>
+            <span class="price-amount" id="pro-price">$24</span>
+            <span class="price-period">/ month</span>
+          </div>
+
+          <div class="discount-banner-pill">🔥 40% OFF Industry Standard</div>
+
+          <div class="plan-models-summary">
+            <div class="models-count-heading">
+              <span>UNLOCKED SILICONS (5 MODELS)</span>
+              <span>5 / 8</span>
+            </div>
+            <div class="models-active-names">
+              🔬 AXION-R1 Sovereign 7B (CoT Reasoning)<br>
+              🧠 AXION Sovereign Coder 7B<br>
+              ⚡ AXION Lightning 8B<br>
+              🔒 AXION Air-Gap Core<br>
+              📱 AXION Mobile Architect
+            </div>
+          </div>
+
+          <ul class="plan-features-list">
+            <li class="plan-feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong>All Core Features Included</strong></span>
+            </li>
+            <li class="plan-feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>DeepSeek-R1 Autonomous Chain-of-Thought Reasoning</span>
+            </li>
+            <li class="plan-feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Multi-File Autonomous Bug Healing & Code Synthesis</span>
+            </li>
+            <li class="plan-feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Infinite Context Ledger (Local LanceDB Vector Vault)</span>
+            </li>
+            <li class="plan-feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>1-Click Android APK & Mobile Architecture Generator</span>
+            </li>
+          </ul>
+
+          <button class="btn-plan-select btn-plan-primary" onclick="openPaymentCheckout('AXION Pro', 24, 'AXION-PRO')">
+            Get AXION Pro
+          </button>
+        </div>
+
+        <!-- PLAN 3: SUPREME -->
+        <div class="pricing-card" id="card-supreme">
+          <div class="plan-header">
+            <div class="plan-badge-type">ENTERPRISE SOVEREIGNTY</div>
+            <h3 class="plan-name">AXION Supreme</h3>
+            <p class="plan-tagline">Unlimited silicon fleet access with zero cloud leaks for top tech teams.</p>
+          </div>
+
+          <div class="plan-price-block">
+            <span class="price-strike" id="sup-strike">$100</span>
+            <span class="price-amount" id="sup-price">$59</span>
+            <span class="price-period">/ month</span>
+          </div>
+
+          <div class="discount-banner-pill">🔥 40% OFF Industry Standard</div>
+
+          <div class="plan-models-summary">
+            <div class="models-count-heading">
+              <span>UNLOCKED SILICONS (ALL 8 MODELS)</span>
+              <span>8 / 8 👑</span>
+            </div>
+            <div class="models-active-names">
+              👑 ALL 8 SOVEREIGN SILICONS ACTIVE<br>
+              Includes Nexus 405B, Sovereign 70B & 4K Video
+            </div>
+          </div>
+
+          <ul class="plan-features-list">
+            <li class="plan-feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong>100% Uncapped Access to All 8 AI Models</strong></span>
+            </li>
+            <li class="plan-feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Godfather Swarm Architecture (Multi-Agent Swarm)</span>
+            </li>
+            <li class="plan-feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Strict Air-Gapped Zero-Cloud Isolation Mode (HIPAA/SOC2)</span>
+            </li>
+            <li class="plan-feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Custom Model Fine-Tuning & Weight Importer</span>
+            </li>
+            <li class="plan-feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>VIP Priority Neural Router & 24/7 Sovereign Support</span>
+            </li>
+          </ul>
+
+          <button class="btn-plan-select btn-plan-outline" onclick="openPaymentCheckout('AXION Supreme', 59, 'AXION-SUPREME')">
+            Get AXION Supreme
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INTERACTIVE MODEL MATRIX SECTION -->
+  <section class="matrix-section" id="models">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">INTERACTIVE MODEL BIFURCATION DEMO</span>
+        <h2 class="section-title">See Which Models Activate With Your Plan.</h2>
+        <p class="section-desc">
+          Click a plan below to test the live entitlement gate. Just like in the AXION Terminal, 
+          models outside your plan show as unavailable until upgraded.
+        </p>
+      </div>
+
+      <div class="matrix-nav-tabs">
+        <button class="matrix-tab-btn" onclick="filterModels('core', this)">AXION Core ($12/mo)</button>
+        <button class="matrix-tab-btn active" onclick="filterModels('pro', this)">AXION Pro ($24/mo)</button>
+        <button class="matrix-tab-btn" onclick="filterModels('supreme', this)">AXION Supreme ($59/mo)</button>
+      </div>
+
+      <div class="models-matrix-grid" id="matrixGrid">
+        <!-- Javascript dynamically updates model lock/unlock states -->
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SYSTEM REQUIREMENTS SECTION (ANONYMIZED ENGINE TIERS) -->
+  <section class="matrix-section" id="requirements" style="background:#040710;border-top:1px solid rgba(0,242,254,0.12);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">HARDWARE &amp; DEPLOYMENT MATRIX</span>
+        <h2 class="section-title">System Requirements for the Models.</h2>
+        <p class="section-desc">
+          Engine specifications are organized by execution profile—keeping underlying model weights proprietary while
+          telling teams the exact hardware needed to run locally (8 GB RAM CPU mode) or via Hybrid Cloud Offload.
+        </p>
+      </div>
+
+      <div class="table-responsive">
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th>Engine Tier (Anonymized)</th>
+              <th class="col-axion">Min RAM</th>
+              <th>Recommended RAM / VRAM</th>
+              <th>CPU / Cores</th>
+              <th>Disk Space</th>
+              <th>Execution Strategy on 8 GB Laptops</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Profile A — Edge Instant Engine</strong></td>
+              <td class="col-axion">4 GB</td>
+              <td>8 GB Unified / 2 GB VRAM optional</td>
+              <td>4+ cores (x64 / ARM64)</td>
+              <td>1.0 GB</td>
+              <td><span class="check-yes">✔ Runs 100% Native Locally (CPU)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Profile B — Air-Gap Privacy Engine</strong></td>
+              <td class="col-axion">4 GB</td>
+              <td>8 GB Unified</td>
+              <td>4+ cores</td>
+              <td>1.5 GB</td>
+              <td><span class="check-yes">✔ Runs 100% Offline Locally</span></td>
+            </tr>
+            <tr>
+              <td><strong>Profile C — Deep CoT Reasoning</strong></td>
+              <td class="col-axion">8 GB</td>
+              <td>16 GB RAM / 6 GB VRAM</td>
+              <td>4–6+ cores</td>
+              <td>5.0 GB</td>
+              <td>On-demand swap or Auto-Scaled 1.5B fallback</td>
+            </tr>
+            <tr>
+              <td><strong>Profile D — Full-Stack Coder</strong></td>
+              <td class="col-axion">8 GB</td>
+              <td>16 GB RAM / 6 GB VRAM</td>
+              <td>4–6+ cores</td>
+              <td>5.0 GB</td>
+              <td>On-demand single-model slot or Auto-Scale</td>
+            </tr>
+            <tr>
+              <td><strong>Profile E — Mobile Architect</strong></td>
+              <td class="col-axion">8 GB</td>
+              <td>16 GB RAM (+ Android SDK / Xcode)</td>
+              <td>4–8+ cores</td>
+              <td>5.0 GB + SDKs</td>
+              <td>Local APK/Flutter gen + on-demand weights</td>
+            </tr>
+            <tr>
+              <td><strong>Profile F — 4K Video &amp; Visual Studio</strong></td>
+              <td class="col-axion">8 GB (Low-VRAM Mode)</td>
+              <td>16–24 GB RAM / 8–12 GB VRAM</td>
+              <td>6+ cores</td>
+              <td>4–12 GB</td>
+              <td>Tiled-VAE 1.3B Low-VRAM + Remotion local</td>
+            </tr>
+            <tr>
+              <td><strong>Profile G — Enterprise Architecture</strong></td>
+              <td class="col-axion">8 GB (Hybrid) / 32 GB (Local)</td>
+              <td>48 GB+ Unified / 24 GB+ VRAM</td>
+              <td>8+ cores</td>
+              <td>10–40 GB</td>
+              <td>Hybrid Remote / Supabase Offload recommended</td>
+            </tr>
+            <tr>
+              <td><strong>Profile H — Multi-Agent Swarm</strong></td>
+              <td class="col-axion">8 GB (Hybrid) / 16 GB+ Local</td>
+              <td>32–64 GB RAM / Dual GPU</td>
+              <td>8+ cores</td>
+              <td>10–40 GB</td>
+              <td>16B MoE Workstation or Remote Edge Worker</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CROSS-PLATFORM OS & ENTERPRISE COMPLIANCE -->
+  <section class="comparison-section" id="compliance" style="padding-bottom:30px;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">CROSS-PLATFORM ARCHITECTURE</span>
+        <h2 class="section-title">Windows, Linux &amp; macOS Ready.</h2>
+        <p class="section-desc">
+          Engineered on an open-source MIT/Apache-2.0 stack with native OS isolation and strict data-sovereignty guarantees.
+        </p>
+      </div>
+
+      <div class="models-matrix-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));">
+        <div class="model-card unlocked">
+          <div class="model-status-chip status-unlocked">🪟 Microsoft Windows 10 / 11</div>
+          <div class="model-name-title">Windows Desktop Compliance</div>
+          <p class="model-desc-body">
+            • User-mode AppData &amp; Portable NSIS packaging (no forced system registry locks).<br>
+            • AppUserModelID (<code>ai.axion.studio</code>), Offline Windows SAPI Speech, PowerShell shell &amp; Android Gradle/JDK integration.
+          </p>
+        </div>
+        <div class="model-card unlocked">
+          <div class="model-status-chip status-unlocked">🐧 Linux (Ubuntu / Fedora / Arch)</div>
+          <div class="model-name-title">Linux XDG &amp; Open-Source Compliance</div>
+          <p class="model-desc-body">
+            • AppImage &amp; <code>.deb</code> distribution targets following XDG paths (<code>~/.config/axion</code>).<br>
+            • Native POSIX <code>/bin/bash</code> shell, CPU/Vulkan/ROCm Ollama execution, zero proprietary telemetry.
+          </p>
+        </div>
+        <div class="model-card unlocked">
+          <div class="model-status-chip status-unlocked">🍏 macOS (Apple Silicon &amp; Intel)</div>
+          <div class="model-name-title">macOS Hardened Runtime Ready</div>
+          <p class="model-desc-body">
+            • Universal <code>.dmg</code> / <code>.zip</code> bundle targets with <code>ai.axion.studio</code> identifier.<br>
+            • Apple Metal GPU inference via Ollama, <code>zsh</code> terminal integration &amp; Swift/Xcode mobile builds.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPETITOR BENCHMARK TABLE -->
+  <section class="comparison-section" id="benchmarks">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">HEAD-TO-HEAD AUDIT</span>
+        <h2 class="section-title">How AXION Crushes The Competition.</h2>
+      </div>
+
+      <div class="table-responsive">
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th>Feature Capability</th>
+              <th class="col-axion">👑 AXION Terminal</th>
+              <th>Cursor Pro</th>
+              <th>GitHub Copilot</th>
+              <th>Windsurf</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Monthly Cost</strong></td>
+              <td class="col-axion"><strong>$12 - $24 (40% OFF)</strong></td>
+              <td>$20 - $40</td>
+              <td>$19 - $39</td>
+              <td>$15 - $30</td>
+            </tr>
+            <tr>
+              <td><strong>100% Local Air-Gapped Mode</strong></td>
+              <td class="col-axion"><span class="check-yes">✔ Native Local Silicon</span></td>
+              <td><span class="check-no">✖ Cloud Only</span></td>
+              <td><span class="check-no">✖ Cloud Only</span></td>
+              <td><span class="check-no">✖ Cloud Only</span></td>
+            </tr>
+            <tr>
+              <td><strong>AI Model Arsenal</strong></td>
+              <td class="col-axion"><strong>8 Dedicated Silicons</strong></td>
+              <td>2 Closed APIs</td>
+              <td>1 Closed API</td>
+              <td>2 Closed APIs</td>
+            </tr>
+            <tr>
+              <td><strong>FOSS-Interceptor (Zero Paid SaaS)</strong></td>
+              <td class="col-axion"><span class="check-yes">✔ Inbuilt ($0 Tech Stack)</span></td>
+              <td><span class="check-no">✖ Pushes Paid SaaS</span></td>
+              <td><span class="check-no">✖ Pushes Azure</span></td>
+              <td><span class="check-no">✖ None</span></td>
+            </tr>
+            <tr>
+              <td><strong>Offline Voice Recognition Engine</strong></td>
+              <td class="col-axion"><span class="check-yes">✔ Inbuilt (Hindi + Eng)</span></td>
+              <td><span class="check-no">✖ None</span></td>
+              <td><span class="check-no">✖ English Only</span></td>
+              <td><span class="check-no">✖ None</span></td>
+            </tr>
+            <tr>
+              <td><strong>Per-Token Overage Billing</strong></td>
+              <td class="col-axion"><span class="check-yes">✔ $0 FOREVER (Uncapped)</span></td>
+              <td><span class="check-no">✖ Extra Token Fees</span></td>
+              <td><span class="check-no">✖ Throttled Rate</span></td>
+              <td><span class="check-no">✖ Extra Token Fees</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHECKOUT SIMULATION MODAL -->
+  
+  <!-- CHECKOUT & PAYMENT MODAL -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal-content" style="max-width: 580px;">
+      <button class="modal-close-btn" onclick="closeCheckout()">✕</button>
+
+      <!-- STEP 1: PAYMENT GATEWAY (BEFORE KEY) -->
+      <div id="checkoutStep1">
+        <h3 style="font-family: var(--font-display); font-size: 22px; font-weight: 900; margin-bottom: 6px; color:#f8fafc;">
+          👑 Activate <span id="modalPlanName" style="color:#f59e0b;">AXION Pro</span>
+        </h3>
+        <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 16px;">
+          Special 40% International Launch Rate: <strong id="modalPrice" style="color: #ffffff;">$24/month</strong> • 24/7 Non-Stop Work
+        </p>
+
+        <div style="background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); padding: 10px 14px; border-radius: 10px; font-size: 12px; color: #34d399; margin-bottom: 18px; display:flex; align-items:center; gap:8px;">
+          <span>✔ 100% Unlimited Local & Groq LPU Execution • Zero Token Limits • Cancel Anytime</span>
+        </div>
+
+        <label style="font-size: 11.5px; font-weight: 700; color: #94a3b8; text-transform: uppercase;">Your Name</label>
+        <input type="text" id="custNameInput" class="checkout-input-field" placeholder="e.g. Commander Sharda" value="Commander Sharda">
+
+        <label style="font-size: 11.5px; font-weight: 700; color: #94a3b8; text-transform: uppercase;">Your Email (For License Delivery)</label>
+        <input type="email" id="custEmailInput" class="checkout-input-field" placeholder="e.g. sharda@axion.local" value="sharda@axion.local">
+
+        <label style="font-size: 11.5px; font-weight: 700; color: #94a3b8; text-transform: uppercase;">Select Payment Method</label>
+        <div class="payment-options-row">
+          <button class="payment-opt-btn active" id="payOptUpi" onclick="selectPaymentMethod('UPI / QR Code')">
+            🟢 UPI / NetBanking<br><span style="font-size:10px; color:#94a3b8;">Razorpay Verified</span>
+          </button>
+          <button class="payment-opt-btn" id="payOptCard" onclick="selectPaymentMethod('Credit / Debit Card')">
+            🔵 Cards / Stripe<br><span style="font-size:10px; color:#94a3b8;">International</span>
+          </button>
+          <button class="payment-opt-btn" id="payOptTrial" onclick="selectPaymentMethod('14-Day Free Trial')">
+            ⚡ 14-Day Trial<br><span style="font-size:10px; color:#94a3b8;">Instant ₹0 Claim</span>
+          </button>
+        </div>
+
+        <label style="font-size: 11.5px; font-weight: 700; color: #f59e0b; text-transform: uppercase;">12-Digit UPI UTR / Razorpay Payment ID (Required for Verification)</label>
+        <input type="text" id="custUtrInput" class="checkout-input-field" placeholder="e.g. 432618904512 or pay_Px92kLmN81qZ" value="">
+        <div id="checkoutErrorMsg" style="display:none; color:#ef4444; font-size:12px; font-weight:600; margin-bottom:10px;"></div>
+
+        <button class="btn-hero-primary" id="btnPayAction" style="width: 100%; justify-content: center; margin-top: 10px;" onclick="processPaymentAndUnlockKey()">
+          🔒 Complete Payment & Unlock License Key ➤
+        </button>
+        <div style="text-align:center; font-size:11px; color:#64748b; margin-top:10px;">
+          🔒 256-Bit SSL Encrypted • 30-Day Money-Back Guarantee
+        </div>
+      </div>
+
+      <!-- STEP 2: PAYMENT VERIFIED & LICENSE KEY UNLOCKED -->
+      <div id="checkoutStep2" style="display: none;">
+        <div style="text-align: center; margin-bottom: 16px;">
+          <div style="font-size: 40px; margin-bottom: 8px;">🎉</div>
+          <h3 style="font-family: var(--font-display); font-size: 22px; font-weight: 900; color: #34d399; margin-bottom: 4px;">
+            Payment Verified & License Activated!
+          </h3>
+          <p style="font-size: 12.5px; color: #94a3b8;">
+            Invoice: <span id="issuedInvoiceId" style="color:#f8fafc; font-family:var(--font-code);">INV-AXN-2026</span> • Status: <strong style="color:#10b981;">PAID</strong>
+          </p>
+        </div>
+
+        <div style="margin: 18px 0;">
+          <label style="font-size: 11.5px; font-weight: 700; color: #f59e0b; text-transform: uppercase;">Your Sovereign License Key (Copy Below)</label>
+          <div class="license-box">
+            <span id="licenseKeyText">AXION-PRO-871F-94B2-SOV</span>
+            <button class="btn-copy-key" onclick="copyLicenseKey()">Copy Key</button>
+          </div>
+        </div>
+
+        <div style="background: rgba(0,0,0,0.4); padding: 14px; border-radius: 12px; font-size: 12.5px; color: #cbd5e1; line-height: 1.6; margin-bottom: 20px;">
+          <strong>How to activate in AXION Studio:</strong><br>
+          1. Launch AXION Studio on your machine (via 1-click install or downloaded setup).<br>
+          2. Open AXION Studio ➔ Settings (⚙️) ➔ License & Silicon Tiers.<br>
+          3. Paste your license key to instantly unlock your plan's models!
+        </div>
+
+        <button class="btn-hero-primary" style="width: 100%; justify-content: center;" onclick="triggerActualDownload()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          📥 Download AXION Studio Package
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CROSS-PLATFORM DOWNLOAD MODAL (WINDOWS, LINUX, MACOS) -->
+  <div class="modal-overlay" id="downloadModal">
+    <div class="modal-content" style="max-width: 620px;">
+      <button class="modal-close-btn" onclick="closeDownloadModal()">✕</button>
+      <div style="display:flex; align-items:center; gap:14px; margin-bottom:12px;">
+        <img src="axion_logo.svg" alt="AXION Logo" style="width:42px; height:42px; border-radius:10px; object-fit:contain; border:1.5px solid rgba(0,242,254,0.5); background:rgba(10,25,47,0.8); padding:2px; flex-shrink:0;">
+        <div>
+          <h3 style="font-family: var(--font-display); font-size: 21px; font-weight: 900; color: #f8fafc; margin:0;">
+            Download AXION Terminal & Studio
+          </h3>
+          <p style="font-size: 13px; color: var(--text-muted); margin:2px 0 0 0;">
+            Windows, Linux & macOS Native Packages (100% Sovereign • Zero Cloud Fees)
+          </p>
+        </div>
+      </div>
+
+      <div class="os-tabs-nav" style="margin-top:16px;">
+        <button class="os-tab-btn active" id="tabWinBtn" onclick="selectOsTab('win')">
+          🪟 Windows (10/11)
+        </button>
+        <button class="os-tab-btn" id="tabLinuxBtn" onclick="selectOsTab('linux')">
+          🐧 Linux (x64/ARM)
+        </button>
+        <button class="os-tab-btn" id="tabMacBtn" onclick="selectOsTab('mac')">
+          🍏 macOS (Metal/Intel)
+        </button>
+      </div>
+
+      <!-- WINDOWS PANEL -->
+      <div class="os-panel active" id="panelWin">
+        <!-- 1-Click Terminal Quick Setup (Recommended Native Microsoft Standard) -->
+        <div style="background:rgba(0, 242, 254, 0.05); border:1px solid rgba(0, 242, 254, 0.25); border-radius:12px; padding:16px; margin-bottom:16px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+            <div style="font-weight:700; color:#38bdf8; font-size:13.5px; display:flex; align-items:center; gap:8px;">
+              <span>⚡ Quick Terminal Setup (Recommended)</span>
+            </div>
+            <span style="background:rgba(0,242,254,0.15); color:#00f2fe; font-size:10.5px; font-weight:700; padding:2px 8px; border-radius:12px; border:1px solid rgba(0,242,254,0.3);">FASTEST • ZERO PROMPTS</span>
+          </div>
+          <div style="font-size:12px; color:#cbd5e1; line-height:1.5; margin-bottom:10px;">
+            Run in Windows Terminal, PowerShell, or Command Prompt. Automatically deploys AXION Studio, registers <code>axion</code> in PATH, sets up shortcuts, and launches instantly:
+          </div>
+          <div class="code-snippet-box">
+            <div class="code-snippet-text" id="winCmdText">powershell -c "irm https://raw.githubusercontent.com/sjsandeepjaiswal8-ship-it/axion-releases/main/install.ps1 | iex"</div>
+            <button class="btn-copy-snippet" onclick="copySnippet('winCmdText')">📋 Copy</button>
+          </div>
+        </div>
+
+        <div style="font-size:12px; font-weight:700; color:#94a3b8; text-transform:uppercase; margin-bottom:8px; display:flex; align-items:center; gap:6px;">
+          <span>📦 Direct Graphical Downloads:</span>
+        </div>
+
+        <a href="https://github.com/sjsandeepjaiswal8-ship-it/axion-releases/releases/download/v1.0.0/AXION-Setup-Pro.zip"
+           class="btn-hero-primary"
+           id="btnDirectDownloadWinZip"
+           style="width: 100%; justify-content: center; font-size:14.5px; padding:13px 20px; text-decoration:none; display:flex; align-items:center; gap:10px; margin-bottom:10px;"
+           download="AXION-Setup-Pro.zip">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          📦 Download AXION Studio Package (.zip — Browser Friendly)
+        </a>
+
+        <a href="https://github.com/sjsandeepjaiswal8-ship-it/axion-releases/releases/download/v1.0.0/AXION-Setup-Pro.exe"
+           class="btn-hero-secondary"
+           id="btnDirectDownloadWin"
+           style="width: 100%; justify-content: center; font-size:13.5px; padding:10px 18px; text-decoration:none; display:flex; align-items:center; gap:8px;"
+           download="AXION-Setup-Pro.exe">
+          📥 Download Standalone Installer (.exe - 181 MB)
+        </a>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:12px; font-size:11.5px; color:#64748b;">
+          <span>✔ Windows 10 & 11 (64-bit)</span>
+          <span>✔ Bundled Whisper STT & 9 AI Models</span>
+          <a href="/download" style="color:#00f2fe; text-decoration:none;">Direct Server Mirror ➔</a>
+        </div>
+
+        <!-- Authenticity & Security Verified Badge -->
+        <div style="display:flex; align-items:center; justify-content:center; gap:8px; margin-top:14px; font-size:12px; color:#10b981; background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.25); border-radius:10px; padding:10px 14px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <span><strong>100% Verified Safe & Clean</strong> • Open-Source MIT License • Zero Malware • SHA-256 Verified</span>
+        </div>
+      </div>
+
+      <!-- LINUX PANEL -->
+      <div class="os-panel" id="panelLinux">
+        <div style="background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:16px; margin-bottom:14px;">
+          <div style="font-weight:700; color:#f8fafc; font-size:14px; margin-bottom:4px;">
+            🐧 Linux Native Quick Setup
+          </div>
+          <div style="font-size:12.5px; color:#94a3b8; line-height:1.5;">
+            Supports Ubuntu, Debian, Arch, Fedora, openSUSE. 100% user-mode setup with zero root/sudo required.
+          </div>
+        </div>
+
+        <a href="https://raw.githubusercontent.com/sjsandeepjaiswal8-ship-it/axion-releases/main/install-linux.sh"
+           class="btn-hero-primary"
+           style="width: 100%; justify-content: center; text-decoration:none; display:flex; align-items:center; gap:8px; margin-bottom:14px; font-size:14px; padding:12px 18px;"
+           download="install-linux.sh">
+          📥 Download install-linux.sh Setup Script
+        </a>
+
+        <div style="font-size:11.5px; font-weight:700; color:#94a3b8; text-transform:uppercase; margin-bottom:6px;">
+          या टर्मिनल में 1-लाइन कमांड चलाएँ (Run in Terminal):
+        </div>
+        <div class="code-snippet-box">
+          <div class="code-snippet-text" id="linuxCmdText">curl -fsSL https://raw.githubusercontent.com/sjsandeepjaiswal8-ship-it/axion-releases/main/install-linux.sh | bash</div>
+          <button class="btn-copy-snippet" onclick="copySnippet('linuxCmdText')">📋 Copy</button>
+        </div>
+      </div>
+
+      <!-- MACOS PANEL -->
+      <div class="os-panel" id="panelMac">
+        <div style="background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:16px; margin-bottom:14px;">
+          <div style="font-weight:700; color:#f8fafc; font-size:14px; margin-bottom:4px;">
+            🍏 macOS Terminal Installer (Apple Silicon & Intel)
+          </div>
+          <div style="font-size:12.5px; color:#94a3b8; line-height:1.5;">
+            Apple Silicon (M1/M2/M3/M4) Metal GPU acceleration and zsh terminal integration.
+          </div>
+        </div>
+
+        <a href="https://raw.githubusercontent.com/sjsandeepjaiswal8-ship-it/axion-releases/main/install-mac.sh"
+           class="btn-hero-primary"
+           style="width: 100%; justify-content: center; text-decoration:none; display:flex; align-items:center; gap:8px; margin-bottom:14px; font-size:14px; padding:12px 18px;"
+           download="install-mac.sh">
+          📥 Download install-mac.sh Setup Script
+        </a>
+
+        <div style="font-size:11.5px; font-weight:700; color:#94a3b8; text-transform:uppercase; margin-bottom:6px;">
+          या macOS Terminal (zsh) में चलाएँ:
+        </div>
+        <div class="code-snippet-box">
+          <div class="code-snippet-text" id="macCmdText">curl -fsSL https://raw.githubusercontent.com/sjsandeepjaiswal8-ship-it/axion-releases/main/install-mac.sh | bash</div>
+          <button class="btn-copy-snippet" onclick="copySnippet('macCmdText')">📋 Copy</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-content">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <img src="axion_logo.svg" alt="AXION Logo" style="width: 38px; height: 38px; border-radius: 9px; object-fit: contain; border: 1.5px solid rgba(0,242,254,0.4); flex-shrink: 0; background: rgba(10,25,47,0.8); padding: 2px;">
+        <div>
+          <strong style="color: #ffffff; letter-spacing: 1px;">AXION</strong> — The Invisible Force of Precision<br>
+          <span style="font-size: 11px;">© 2026 AXION Systems Inc. All sovereign rights reserved.</span>
+        </div>
+      </div>
+          <strong style="color: #ffffff; letter-spacing: 1px;">AXION</strong> — The Invisible Force of Precision<br>
+          <span style="font-size: 11px;">© 2026 AXION Systems Inc. All sovereign rights reserved.</span>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 8px; font-family: var(--font-code); font-size: 12px; color: var(--success-green);">
+        <span style="width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981;"></span>
+        <span>All 8 Silicon Fleets Operational (Latency: 12ms)</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+  <script>
+    // 1. Quantum Canvas Simulation
+    const canvas = document.getElementById('quantumCanvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    const particles = [];
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    for (let i = 0; i < 65; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        radius: Math.random() * 1.5 + 0.5
+      });
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = 'rgba(0, 242, 254, 0.4)';
+      ctx.strokeStyle = 'rgba(0, 242, 254, 0.05)';
+
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0) p.x = width;
+        if (p.x > width) p.x = 0;
+        if (p.y < 0) p.y = height;
+        if (p.y > height) p.y = 0;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fill();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+          if (dist < 130) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    // 2. Pricing & Currency Logic (40% OFF Standard Rates)
+    let currentCurrency = 'USD';
+    let isAnnual = false;
+
+    const CURRENCY_DATA = {
+      USD: { symbol: '$', rate: 1, core: 12, coreReg: 20, pro: 24, proReg: 40, sup: 59, supReg: 100 },
+      EUR: { symbol: '€', rate: 0.94, core: 11, coreReg: 19, pro: 22, proReg: 38, sup: 55, supReg: 95 },
+      GBP: { symbol: '£', rate: 0.81, core: 9.5, coreReg: 16, pro: 19, proReg: 32, sup: 48, supReg: 82 },
+      INR: { symbol: '₹', rate: 84.5, core: 999, coreReg: 1699, pro: 1999, proReg: 3399, sup: 4999, supReg: 8499 }
+    };
+
+    function setCurrency(curr) {
+      currentCurrency = curr;
+      document.querySelectorAll('.currency-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.includes(curr));
+      });
+      updatePricingDisplay();
+    }
+
+    function toggleAnnual(checked) {
+      isAnnual = checked;
+      updatePricingDisplay();
+    }
+
+    function updatePricingDisplay() {
+      const d = CURRENCY_DATA[currentCurrency];
+      const mult = isAnnual ? 0.8 : 1.0; // Extra 20% discount on annual
+
+      const coreVal = Math.round(d.core * mult);
+      const proVal = Math.round(d.pro * mult);
+      const supVal = Math.round(d.sup * mult);
+
+      document.getElementById('core-price').textContent = `${d.symbol}${coreVal}`;
+      document.getElementById('core-strike').textContent = `${d.symbol}${d.coreReg}`;
+      document.getElementById('pro-price').textContent = `${d.symbol}${proVal}`;
+      document.getElementById('pro-strike').textContent = `${d.symbol}${d.proReg}`;
+      document.getElementById('sup-price').textContent = `${d.symbol}${supVal}`;
+      document.getElementById('sup-strike').textContent = `${d.symbol}${d.supReg}`;
+    }
+
+    // 3. The Sovereign Models Catalog
+    const ALL_8_MODELS = [
+      {
+        id: 'axion-groq-120b',
+        name: '⚡ AXION Turbo 120B (Groq LPU)',
+        spec: '120B Params • 500 T/s • 30 RPM Free Tier',
+        desc: 'Ultra-fast sub-second reasoning and full-stack coding via Groq LPU hardware at zero cost, with seamless local Ollama fallback.',
+        tiers: ['core', 'pro', 'supreme']
+      },
+      {
+        id: 'axion-lightning',
+        name: '⚡ AXION Lightning 8B',
+        spec: '8B Params • 356ms Latency • 128k Context',
+        desc: 'Sub-second real-time voice, inline tab autocomplete, and instant syntax validation.',
+        tiers: ['core', 'pro', 'supreme']
+      },
+      {
+        id: 'axion-airgap',
+        name: '🔒 AXION Air-Gap Core',
+        spec: '7B Params • Zero Telemetry • 100% Offline',
+        desc: 'Strict local isolation mode guaranteeing zero data leaves your local RAM and GPU.',
+        tiers: ['core', 'pro', 'supreme']
+      },
+      {
+        id: 'axion-r1',
+        name: '🔬 AXION-R1 Sovereign 7B',
+        spec: '7B CoT Reasoning • DeepSeek-R1 Silicon',
+        desc: 'Autonomous multi-step logical deduction, formal math, and complex debugging.',
+        tiers: ['pro', 'supreme']
+      },
+      {
+        id: 'axion-coder',
+        name: '🧠 AXION Sovereign Coder 7B',
+        spec: '7B Full-Stack • Qwen 2.5 Coder Base',
+        desc: 'Full-stack software architecture, multi-file code generation, and test suites.',
+        tiers: ['pro', 'supreme']
+      },
+      {
+        id: 'axion-mobile',
+        name: '📱 AXION Mobile Architect',
+        spec: '14B Specialization • Flutter & Kotlin/Swift',
+        desc: '1-click mobile application development, Android APK builder, and iOS layouts.',
+        tiers: ['pro', 'supreme']
+      },
+      {
+        id: 'axion-4k-video',
+        name: '🎨 AXION 4K Video & Visuals',
+        spec: 'Multi-Modal Vision • Generative UI Core',
+        desc: 'Generates UI layouts, SVG emblems, 3D visual mockups, and video code directly.',
+        tiers: ['supreme']
+      },
+      {
+        id: 'axion-70b',
+        name: '👑 AXION Sovereign 70B',
+        spec: '70B Heavyweight • Enterprise Agent',
+        desc: 'Enterprise-grade deep architecture synthesis, database optimization, and refactoring.',
+        tiers: ['supreme']
+      },
+      {
+        id: 'axion-nexus-405b',
+        name: '🌌 AXION Nexus 405B',
+        spec: '405B Swarm Fleet • Godfather Intelligence',
+        desc: 'Massive autonomous multi-agent swarm orchestration for entire software fleets.',
+        tiers: ['supreme']
+      }
+    ];
+
+    function filterModels(tier, btn) {
+      document.querySelectorAll('.matrix-tab-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      const grid = document.getElementById('matrixGrid');
+      grid.innerHTML = '';
+
+      ALL_8_MODELS.forEach(m => {
+        const isUnlocked = m.tiers.includes(tier);
+        const card = document.createElement('div');
+        card.className = `model-card ${isUnlocked ? 'unlocked' : 'locked'}`;
+        card.innerHTML = `
+          <div class="model-status-chip ${isUnlocked ? 'status-unlocked' : 'status-locked'}">
+            ${isUnlocked ? '✔ UNLOCKED (ACTIVE SILICON)' : (tier === 'core' ? '👑 UNLOCKS ON PRO' : '🌌 UNLOCKS ON SUPREME')}
+          </div>
+          <div class="model-name-title">${m.name}</div>
+          <div class="model-param-spec">${m.spec}</div>
+          <p class="model-desc-body">${m.desc}</p>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Default load Pro
+    filterModels('pro');
+
+    // 4. Checkout & Key Generator Modal
+
+    // OS Detection & Download Modal
+    function openDownloadModal() {
+      const modal = document.getElementById('downloadModal');
+      if (modal) modal.classList.add('open');
+      const origin = window.location.origin;
+      const wEl = document.getElementById('winCmdText');
+      if (wEl) {
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+          wEl.textContent = `powershell -c "irm ${origin}/install.ps1 | iex"`;
+        } else {
+          wEl.textContent = `powershell -c "irm https://raw.githubusercontent.com/sjsandeepjaiswal8-ship-it/axion-releases/main/install.ps1 | iex"`;
+        }
+      }
+      const lEl = document.getElementById('linuxCmdText');
+      if (lEl) lEl.textContent = `curl -fsSL ${origin}/download/linux | bash`;
+      const mEl = document.getElementById('macCmdText');
+      if (mEl) mEl.textContent = `curl -fsSL ${origin}/download/mac | bash`;
+
+      const ua = navigator.userAgent.toLowerCase();
+      if (ua.includes('mac')) selectOsTab('mac');
+      else if (ua.includes('linux')) selectOsTab('linux');
+      else selectOsTab('win');
+    }
+
+    function closeDownloadModal() {
+      const modal = document.getElementById('downloadModal');
+      if (modal) modal.classList.remove('open');
+    }
+
+    function selectOsTab(os) {
+      document.querySelectorAll('.os-tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.os-panel').forEach(p => p.classList.remove('active'));
+
+      if (os === 'win') {
+        const b = document.getElementById('tabWinBtn'); if (b) b.classList.add('active');
+        const p = document.getElementById('panelWin'); if (p) p.classList.add('active');
+      } else if (os === 'linux') {
+        const b = document.getElementById('tabLinuxBtn'); if (b) b.classList.add('active');
+        const p = document.getElementById('panelLinux'); if (p) p.classList.add('active');
+      } else if (os === 'mac') {
+        const b = document.getElementById('tabMacBtn'); if (b) b.classList.add('active');
+        const p = document.getElementById('panelMac'); if (p) p.classList.add('active');
+      }
+    }
+
+    function copySnippet(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const text = el.textContent.trim();
+      navigator.clipboard.writeText(text);
+      const btn = el.parentElement ? el.parentElement.querySelector('.btn-copy-snippet') : null;
+      if (btn) {
+        const orig = btn.innerHTML;
+        btn.innerHTML = '✔ Copied!';
+        btn.style.background = '#10b981';
+        btn.style.color = '#fff';
+        btn.style.borderColor = '#10b981';
+        setTimeout(() => {
+          btn.innerHTML = orig;
+          btn.style.background = '';
+          btn.style.color = '';
+          btn.style.borderColor = '';
+        }, 2000);
+      }
+    }
+
+    // Payment Gateway & Multi-Step Checkout
+    let selectedPayment = 'UPI / QR Code';
+    let currentCheckoutPlan = { name: 'AXION Pro', price: 24, prefix: 'AXION-PRO' };
+
+    function selectPaymentMethod(method) {
+      selectedPayment = method;
+      document.querySelectorAll('.payment-opt-btn').forEach(b => b.classList.remove('active'));
+      if (method.includes('UPI')) document.getElementById('payOptUpi').classList.add('active');
+      else if (method.includes('Card')) document.getElementById('payOptCard').classList.add('active');
+      else if (method.includes('Trial')) document.getElementById('payOptTrial').classList.add('active');
+    }
+
+    function openPaymentCheckout(planName, price, prefix) {
+      currentCheckoutPlan = { name: planName, price: price, prefix: prefix };
+      document.getElementById('modalPlanName').textContent = planName;
+      document.getElementById('modalPrice').textContent = `${CURRENCY_DATA[currentCurrency].symbol}${price}/month`;
+
+      // Show step 1, hide step 2
+      document.getElementById('checkoutStep1').style.display = 'block';
+      document.getElementById('checkoutStep2').style.display = 'none';
+
+      document.getElementById('checkoutModal').classList.add('open');
+    }
+
+    async function processPaymentAndUnlockKey() {
+      const name = document.getElementById('custNameInput').value.trim() || 'Commander Sharda';
+      const email = document.getElementById('custEmailInput').value.trim();
+      const utr = (document.getElementById('custUtrInput') ? document.getElementById('custUtrInput').value.trim() : '');
+      const errEl = document.getElementById('checkoutErrorMsg');
+      if (errEl) { errEl.style.display = 'none'; errEl.textContent = ''; }
+
+      if (!email || !email.includes('@')) {
+        if (errEl) { errEl.textContent = '⚠ Please enter a valid email address.'; errEl.style.display = 'block'; }
+        return;
+      }
+      if (!/^[1-9]\d{11}$/.test(utr) && !/^pay_[A-Za-z0-9]{10,20}$/.test(utr)) {
+        if (errEl) { errEl.textContent = '⚠ Enter a valid 12-digit UPI UTR number or Razorpay Payment ID (pay_...) to verify payment.'; errEl.style.display = 'block'; }
+        return;
+      }
+
+      const btn = document.getElementById('btnPayAction');
+      btn.textContent = '⏳ Verifying Payment with ' + selectedPayment + '...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('/api/checkout', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            planName: currentCheckoutPlan.name,
+            price: currentCheckoutPlan.price,
+            currency: currentCurrency,
+            customerName: name,
+            customerEmail: email,
+            paymentMethod: selectedPayment,
+            utrNumber: utr
+          })
+        });
+        const data = await res.json();
+        if (!res.ok || !data.success || !data.licenseKey) {
+          throw new Error(data.error || 'Payment verification rejected by server.');
+        }
+
+        document.getElementById('licenseKeyText').textContent = data.licenseKey;
+        document.getElementById('issuedInvoiceId').textContent = data.invoiceId;
+
+        document.getElementById('checkoutStep1').style.display = 'none';
+        document.getElementById('checkoutStep2').style.display = 'block';
+      } catch (err) {
+        if (errEl) {
+          errEl.textContent = '✖ ' + (err.message || 'Payment verification failed.');
+          errEl.style.display = 'block';
+        }
+      } finally {
+        btn.textContent = '🔒 Complete Payment & Unlock License Key ➤';
+        btn.disabled = false;
+      }
+    }
+
+    function triggerActualDownload() {
+      closeCheckout();
+      openDownloadModal();
+    }
+
+    function closeCheckout() {
+      document.getElementById('checkoutModal').classList.remove('open');
+    }
+
+    function copyLicenseKey() {
+      const key = document.getElementById('licenseKeyText').textContent;
+      navigator.clipboard.writeText(key);
+      const btn = document.querySelector('.btn-copy-key');
+      btn.textContent = 'Copied! ✔';
+      setTimeout(() => btn.textContent = 'Copy Key', 2000);
+    }
+  </script>
+</body>
+</html>
