@@ -1,4 +1,4 @@
-# ==============================================================================
+﻿# ==============================================================================
 # 👑 AXION Studio — Windows 1-Click Native Installer
 # Copyright (c) 2026 AXION Project Contributors. MIT License.
 # ==============================================================================
@@ -20,8 +20,8 @@ $TargetDir = "$env:LOCALAPPDATA\Programs\axion-studio"
 $TempInstaller = "$env:TEMP\AXION-Setup-Pro.exe"
 $TempCer = "$env:TEMP\axion-signer.cer"
 $GitHubReleaseUrl = "https://github.com/sjsandeepjaiswal8-ship-it/axion-releases/releases/download/v1.0.0/AXION-Setup-Pro.exe"
+$HttpsFallbackUrl = "https://sjsandeepjaiswal8-ship-it.github.io/axion-releases/AXION-Setup-Pro.exe"
 $CertUrl = "https://raw.githubusercontent.com/sjsandeepjaiswal8-ship-it/axion-releases/main/axion-signer.cer"
-$LocalMirrorUrl = "http://localhost:3333/download"
 
 # 1. Download Installer
 if (Test-Path "$PSScriptRoot\AXION-Setup-Pro.exe") {
@@ -29,18 +29,15 @@ if (Test-Path "$PSScriptRoot\AXION-Setup-Pro.exe") {
     Copy-Item -Path "$PSScriptRoot\AXION-Setup-Pro.exe" -Destination $TempInstaller -Force
 } else {
     Write-Host "[1/4] 📦 Downloading AXION Studio for Windows..." -ForegroundColor Cyan
-    $downloadSuccess = $false
     try {
-        Write-Host "      Connecting to official release mirror..." -ForegroundColor Gray
+        Write-Host "      Connecting to official GitHub Releases CDN..." -ForegroundColor Gray
         Invoke-WebRequest -Uri $GitHubReleaseUrl -OutFile $TempInstaller -UseBasicParsing
-        $downloadSuccess = $true
     } catch {
-        Write-Host "      GitHub CDN mirror slow, trying local network mirror..." -ForegroundColor Yellow
+        Write-Host "      Primary CDN slow, trying HTTPS Pages mirror..." -ForegroundColor Yellow
         try {
-            Invoke-WebRequest -Uri $LocalMirrorUrl -OutFile $TempInstaller -UseBasicParsing
-            $downloadSuccess = $true
+            Invoke-WebRequest -Uri $HttpsFallbackUrl -OutFile $TempInstaller -UseBasicParsing
         } catch {
-            Write-Error "Failed to download installer from all mirrors: $_"
+            Write-Error "Failed to download installer from HTTPS mirrors (check internet connection): $_"
             exit 1
         }
     }
@@ -113,6 +110,22 @@ Write-Host "  ✔ Start Menu & Desktop shortcuts ready" -ForegroundColor Green
 Write-Host "  ✔ CLI command 'axion' registered" -ForegroundColor Green
 Write-Host "==========================================================================" -ForegroundColor Green
 Write-Host ""
+
+# First-Run Ollama / Local Model Check (CPU-safe & offline-resilient)
+$ollamaCmd = Get-Command ollama -ErrorAction SilentlyContinue
+if (-not $ollamaCmd) {
+    Write-Host "[i] Optional: Ollama not detected. Installing lightweight Ollama or configuring Groq/DeepSeek/OpenRouter in AXION Settings enables instant AI." -ForegroundColor Yellow
+} else {
+    Write-Host "[OK] Ollama detected. Checking lightweight CPU-friendly model (qwen2.5:0.5b)..." -ForegroundColor Cyan
+    try {
+        $tags = & ollama list 2>$null
+        if ($tags -notmatch "qwen2\.5") {
+            & ollama pull qwen2.5:0.5b
+        }
+    } catch {
+        Write-Host "[i] Offline mode detected: skip model pull for now." -ForegroundColor Yellow
+    }
+}
 
 if (Test-Path $InstalledExe) {
     Write-Host "🚀 Launching AXION Studio..." -ForegroundColor Cyan
